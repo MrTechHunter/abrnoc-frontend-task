@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-toolbar color="primary" dark fixed app>
-      <v-toolbar-title>Dashboard</v-toolbar-title>
+      <v-toolbar-title>Servers</v-toolbar-title>
     </v-toolbar>
     <v-navigation-drawer permanent>
       <v-list>
@@ -16,9 +16,7 @@
             <v-list-item-title class="text-h6">
               {{ email || "Email" }}
             </v-list-item-title>
-            <v-list-item-subtitle v-on:click="logout"
-              >log out</v-list-item-subtitle
-            >
+            <v-list-item-subtitle v-on:click="back">back</v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -26,18 +24,15 @@
       <v-divider></v-divider>
 
       <v-list dense nav>
-        <v-list-item
-          v-for="item in items"
-          :key="item.title"
-          link
-          :to="item.href"
-        >
+        <v-list-item v-for="server in servers" :key="server.title" link>
           <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
+            <v-icon>{{ server.icon }}</v-icon>
           </v-list-item-icon>
 
           <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
+            <v-list-item-title>{{ server.title }}</v-list-item-title>
+            <v-list-item-title>{{ server.cpu }}</v-list-item-title>
+            <v-list-item-title>{{ server.ram }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -62,17 +57,44 @@
 export default {
   data() {
     return {
-      items: [
-        { title: "Dashboard", href: "/dashboard", icon: "mdi-view-dashboard" },
-        { title: "Servers", href: "/servers", icon: "mdi-server" },
-        { title: "About", href: "/about", icon: "mdi-help-box" },
+      servers: [
+        {
+          title: "Plan-A",
+          cpu: "1Core",
+          ram: "2GB",
+          icon: "mdi-server-security",
+        },
+        {
+          title: "Plan-B",
+          cpu: "2Core",
+          ram: "4GB",
+          icon: "mdi-server-security",
+        },
+        {
+          title: "Plan-C",
+          cpu: "4Core",
+          ram: "8GB",
+          icon: "mdi-server-security",
+        },
+        {
+          title: "Plan-D",
+          cpu: "6Core",
+          ram: "8GB",
+          icon: "mdi-server-security",
+        },
+        {
+          title: "Plan-E",
+          cpu: "8Core",
+          ram: "16GB",
+          icon: "mdi-server-security",
+        },
       ],
       email: this.$route.params.email,
     };
   },
   methods: {
-    logout() {
-      this.$router.replace({ name: "account" });
+    back() {
+      this.$router.replace({ name: "dashboard" });
     },
   },
 };

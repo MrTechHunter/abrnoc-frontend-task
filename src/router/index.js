@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Account from '../components/Account'
 import Dashboard from '../components/Dashboard'
+import Servers from '../components/Servers'
 
 Vue.use(VueRouter)
 
@@ -23,6 +24,12 @@ const routes = [
     path: '/dashboard',
     name: 'dashboard',
     component: Dashboard,
+    props: {}
+  },
+  {
+    path: '/servers',
+    name: 'servers',
+    component: Servers,
     props: {}
   },
   {

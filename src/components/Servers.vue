@@ -24,7 +24,12 @@
       <v-divider></v-divider>
 
       <v-list dense nav>
-        <v-list-item v-for="server in servers" :key="server.title" link>
+        <v-list-item
+          v-for="server in servers"
+          :key="server.title"
+          link
+          :to="server.href"
+        >
           <v-list-item-icon>
             <v-icon>{{ server.icon }}</v-icon>
           </v-list-item-icon>
@@ -60,30 +65,35 @@ export default {
       servers: [
         {
           title: "Plan-A",
+          href: "new-server",
           cpu: "1Core",
           ram: "2GB",
           icon: "mdi-server-security",
         },
         {
           title: "Plan-B",
+          href: "new-server",
           cpu: "2Core",
           ram: "4GB",
           icon: "mdi-server-security",
         },
         {
           title: "Plan-C",
+          href: "new-server",
           cpu: "4Core",
           ram: "8GB",
           icon: "mdi-server-security",
         },
         {
           title: "Plan-D",
+          href: "new-server",
           cpu: "6Core",
           ram: "8GB",
           icon: "mdi-server-security",
         },
         {
           title: "Plan-E",
+          href: "new-server",
           cpu: "8Core",
           ram: "16GB",
           icon: "mdi-server-security",

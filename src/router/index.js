@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Account from '../components/Account'
 import Dashboard from '../components/Dashboard'
 import Servers from '../components/Servers'
+import NewServer from '../components/NewServer'
 
 Vue.use(VueRouter)
 
@@ -30,6 +31,12 @@ const routes = [
     path: '/servers',
     name: 'servers',
     component: Servers,
+    props: {}
+  },
+  {
+    path: '/new-server',
+    name: 'new-server',
+    component: NewServer,
     props: {}
   },
   {
